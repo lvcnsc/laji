@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DynamicExpresso;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,7 +22,7 @@ namespace 计算器.真
     /// </summary>
     public partial class MainWindow : Window
     {
-        string Number1 = null, Number2 = null, flag = null;
+        string _formula = string.Empty;
 
         public MainWindow()
         {
@@ -29,16 +31,8 @@ namespace 计算器.真
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + ".";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + ".";
-                label1.Content = Number2;
-            }
+            _formula += ".";
+            label1.Content = _formula;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -48,196 +42,93 @@ namespace 计算器.真
 
         private void Button7_Click_1(object sender, RoutedEventArgs e)
         {
-            if( flag == null)
-            {
-                Number1 = Number1 + "7";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "7";
-                label1.Content = Number2;
-            }
+            _formula += "7";
+            label1.Content = _formula;
         }
 
         private void Button8_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "8";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "8";
-                label1.Content = Number2;
-            }
+            _formula += "8";
+            label1.Content = _formula;
         }
 
         private void Button9_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "9";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "9";
-                label1.Content = Number2;
-            }
+            _formula += "9";
+            label1.Content = _formula;
         }
 
         private void Button6_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "6";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "6";
-                label1.Content = Number2;
-            }
+            _formula += "6";
+            label1.Content = _formula;
         }
 
         private void Button5_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "5";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "5";
-                label1.Content = Number2;
-            }
+            _formula += "5";
+            label1.Content = _formula;
         }
 
         private void Button4_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "4";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "4";
-                label1.Content = Number2;
-            }
+            _formula += "4";
+            label1.Content = _formula;
         }
 
         private void Button3_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "3";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "3";
-                label1.Content = Number2;
-            }
+            _formula += "3";
+            label1.Content = _formula;
         }
 
         private void Button2_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "2";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "2";
-                label1.Content = Number2;
-            }
+            _formula += "2";
+            label1.Content = _formula;
         }
-
 
         private void Button1_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "1";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "1";
-                label1.Content = Number2;
-            }
+            _formula += "1";
+            label1.Content = _formula;
         }
 
         private void Button0_Click_1(object sender, RoutedEventArgs e)
         {
-            if (flag == null)
-            {
-                Number1 = Number1 + "0";
-                label1.Content = Number1;
-            }
-            else
-            {
-                Number2 = Number2 + "0";
-                label1.Content = Number2;
-            }
+            _formula += "0";
+            label1.Content = _formula;
         }
 
         private void Button_add_Click_1(object sender, RoutedEventArgs e)
         {
-            flag = "+";
+            _formula += "+";
+            label1.Content = _formula;
         }
 
         private void Button_sub_Click_1(object sender, RoutedEventArgs e)
         {
-            flag = "-";
+            _formula += "-";
+            label1.Content = _formula;
         }
 
         private void Button_mul_Click_1(object sender, RoutedEventArgs e)
         {
-            flag = "*";
+            _formula += "*";
+            label1.Content = _formula;
         }
-
-
 
         private void Button_div_Click_1(object sender, RoutedEventArgs e)
         {
-            flag = "/";
+            _formula += "/";
+            label1.Content = _formula;
         }
 
         private void Button_equ_Click_1(object sender, RoutedEventArgs e)
         {
-            switch(flag)
-            {
-                case "+":
-                    label1.Content = Convert.ToString(Convert.ToDouble(Number1) + Convert.ToDouble(Number2));
-                    break;
-                case "-":
-                    label1.Content = Convert.ToString(Convert.ToDouble(Number1) - Convert.ToDouble(Number2));
-                    break;
-                case "*":
-                    label1.Content = Convert.ToString(Convert.ToDouble(Number1) * Convert.ToDouble(Number2));
-                    break;
-                case "/":
-                    label1.Content = Convert.ToString(Convert.ToDouble(Number1) / Convert.ToDouble(Number2));
-                    break;
-            }
-            Number1 = null;
-            Number2 = null;
-            flag = null;
-                
-
+            var interpreter = new Interpreter();
+            var result = interpreter.Eval(_formula);
+            label1.Content = result;
         }
-
-
-
-
-
-
-
     }
 }
