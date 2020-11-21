@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>D:\编译输出\</OutputPath>
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Page Include="D:\C#\MainWindow.xaml" Link="MainWindow.xaml" />
-  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">
